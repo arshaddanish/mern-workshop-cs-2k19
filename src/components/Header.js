@@ -1,4 +1,5 @@
 import React from 'react'
+import Button from './Button'
 
 export default function Header({title}) {
   // console.log(props);
@@ -6,7 +7,7 @@ export default function Header({title}) {
   return (
     <div className='header'>
       <h1>{title}</h1>
-      <button>Clik Me</button>
+      <Button color="white" background="green" />
     </div>
   )
 }

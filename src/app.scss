@@ -19,4 +19,26 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
+
+  button {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 5px;
+  }
+}
+
+.task {
+  background: lightgray;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+
+  p:nth-child(1) {
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  p:nth-child(2) {
+    margin-bottom: 0;
+  }
 }
