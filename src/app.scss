@@ -9,7 +9,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 500px;
-  height: 500px;
+  min-height: 500px;
   border: 1px solid blue;
   border-radius: 10px;
   padding: 30px;
@@ -19,19 +19,27 @@ body {
   display: grid;
   grid-template-columns: auto auto;
   justify-content: space-between;
+}
 
-  button {
-    padding: 8px 20px;
-    border: none;
-    border-radius: 5px;
-  }
+.custom-btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 5px;
 }
 
 .task {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: space-between;
   background: lightgray;
   padding: 15px;
   margin-bottom: 20px;
   border-radius: 5px;
+
+  i {
+    color: red;
+    font-size: 20px;
+  }
 
   p:nth-child(1) {
     font-weight: 500;
@@ -41,4 +49,8 @@ body {
   p:nth-child(2) {
     margin-bottom: 0;
   }
+}
+
+.add-task-btn {
+  width: 100%;
 }

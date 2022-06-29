@@ -23,7 +23,7 @@ let tasksInitial = [
 ];
 
 export default function Tasks() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(tasksInitial);
 
   let displayTasks = () => {
     if (tasks.length > 0) {
