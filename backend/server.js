@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 
+const cors = require("cors");
+app.use(cors());
+app.use(express.json());
+app.use(express.static("build"));
+
 // Import Routers | APIs
 const TasksRouter = require("./routes/tasks.js");
 app.use(TasksRouter);
@@ -10,7 +15,7 @@ const port = 9000;
 
 // Serve React Build
 app.get("/", (req, res) => {
-  res.send("I am the React App Build");
+  res.sendFile("/index.html");
 });
 
 // Another Route | API
