@@ -37,20 +37,31 @@ export default function Tasks() {
   };
 
   let deleteTask = async (id) => {
-    await apis.delete(`/tasks/${id}`);
     let filteredTasks = tasks.filter((item) => item._id !== id);
     setTasks(filteredTasks);
+    await apis.delete(`/tasks/${id}`);
   };
 
-  // let toggleReminder = async (id, updateData) => {
-  //   await apis.put(`/tasks/${id}`, updateData);
-  //   fetchTasks();
-  // };
+  let toggleReminder = async (id, updatedData) => {
+    let updatedTasks = tasks.map((item) => {
+      if (item._id === id) return { ...item, ...updatedData };
+      return item;
+    });
+    setTasks(updatedTasks);
+    await apis.put(`/tasks/${id}`, updatedData);
+  };
 
   let displayTasks = () => {
     if (tasks.length > 0) {
       return tasks.map((item) => {
-        return <Task key={item._id} task={item} deleteTask={deleteTask} />;
+        return (
+          <Task
+            key={item._id}
+            task={item}
+            deleteTask={deleteTask}
+            toggleReminder={toggleReminder}
+          />
+        );
       });
     }
     return <p>No Tasks To Show Yet</p>;

@@ -1,8 +1,13 @@
 import React from "react";
 
-export default function Task({ task, deleteTask }) {
+export default function Task({ task, deleteTask, toggleReminder }) {
   return (
-    <div className={`task ${task.reminder ? "reminder" : ""}`}>
+    <div
+      onDoubleClick={() =>
+        toggleReminder(task._id, { reminder: !task.reminder })
+      }
+      className={`task ${task.reminder ? "reminder" : ""}`}
+    >
       <div>
         <p>{task.text}</p>
         <p>{task.day}</p>
