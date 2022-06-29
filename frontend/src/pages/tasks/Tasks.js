@@ -36,10 +36,11 @@ export default function Tasks() {
     // console.log(result);
   };
 
-  // let deleteTask = async (id) => {
-  //   await apis.delete(`/tasks/${id}`);
-  //   fetchTasks();
-  // };
+  let deleteTask = async (id) => {
+    await apis.delete(`/tasks/${id}`);
+    let filteredTasks = tasks.filter((item) => item._id !== id);
+    setTasks(filteredTasks);
+  };
 
   // let toggleReminder = async (id, updateData) => {
   //   await apis.put(`/tasks/${id}`, updateData);
@@ -49,7 +50,7 @@ export default function Tasks() {
   let displayTasks = () => {
     if (tasks.length > 0) {
       return tasks.map((item) => {
-        return <Task key={item._id} task={item} />;
+        return <Task key={item._id} task={item} deleteTask={deleteTask} />;
       });
     }
     return <p>No Tasks To Show Yet</p>;
