@@ -18,34 +18,34 @@ export default function AddTask() {
   return (
     <div className="mt-5" onSubmit={onFormSubmit}>
       <form action="">
-        <div class="mb-4">
-          <label class="form-label">Text</label>
+        <div className="mb-4">
+          <label className="form-label">Text</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Text"
             value={text}
             onChange={(e) => setText(e.target.value)}
           />
         </div>
-        <div class="mb-4">
-          <label class="form-label">Day</label>
+        <div className="mb-4">
+          <label className="form-label">Day</label>
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Day"
             value={day}
             onChange={(e) => setDay(e.target.value)}
           />
         </div>
-        <div class="form-check mb-4">
+        <div className="form-check mb-4">
           <input
-            class="form-check-input"
+            className="form-check-input"
             type="checkbox"
             value={reminder}
             onChange={() => setReminder(!reminder)}
           />
-          <label class="form-check-label">Set Reminder</label>
+          <label className="form-check-label">Set Reminder</label>
         </div>
         <div className="text-center mb-4">
           <button type="submit" className="btn btn-success add-task-btn">
